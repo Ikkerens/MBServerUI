@@ -15,7 +15,7 @@ public class ServerCommandLine extends JPanel {
     private final Server      server;
     private JTextField        field;
 
-    public ServerCommandLine( Server server ) {
+    public ServerCommandLine( final Server server ) {
         this.server = server;
 
         this.setLayout( new BorderLayout() );
@@ -43,7 +43,7 @@ public class ServerCommandLine extends JPanel {
 
         @Override
         public void actionPerformed( final ActionEvent e ) {
-            ServerCommandLine.this.server.executeCommand( server.getConsoleCommandSender(), ServerCommandLine.this.field.getText() );
+            ServerCommandLine.this.server.executeCommand( ServerCommandLine.this.server.getConsoleCommandSender(), ServerCommandLine.this.field.getText() );
             ServerCommandLine.this.field.setText( "" );
         }
 

@@ -3,7 +3,12 @@ package com.ikkerens.serverui;
 import java.awt.GraphicsEnvironment;
 import java.util.logging.Level;
 
+import javax.swing.SwingUtilities;
+
 import com.ikkerens.serverui.screens.LogScreen;
+import com.ikkerens.serverui.screens.PlayerScreen;
+import com.ikkerens.serverui.screens.PluginScreen;
+import com.ikkerens.serverui.screens.WorldsScreen;
 import com.mbserver.api.Load;
 import com.mbserver.api.MBServerPlugin;
 import com.mbserver.api.Manifest;
@@ -20,8 +25,17 @@ public class ServerUIPlugin extends MBServerPlugin {
             return;
         }
 
-        this.mainFrame = new MainWindow( this );
-        this.mainFrame.addTab( new LogScreen() );
+        SwingUtilities.invokeLater( new Runnable() {
+
+            @Override
+            public void run() {
+                ServerUIPlugin.this.mainFrame = new MainWindow( ServerUIPlugin.this );
+                ServerUIPlugin.this.mainFrame.addTab( new LogScreen() );
+                ServerUIPlugin.this.mainFrame.addTab( new PlayerScreen() );
+                ServerUIPlugin.this.mainFrame.addTab( new WorldsScreen() );
+                ServerUIPlugin.this.mainFrame.addTab( new PluginScreen() );
+            }
+        } );
     }
 
     @Override

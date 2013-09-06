@@ -10,14 +10,14 @@ import javax.swing.JTabbedPane;
 import com.ikkerens.serverui.components.Logo;
 
 public class MainWindow extends JFrame {
-    private static final long serialVersionUID = 3280005860693797222L;
-    private final ServerUIPlugin    plugin;
-    private final JTabbedPane tabs;
+    private static final long    serialVersionUID = 3280005860693797222L;
+    private final ServerUIPlugin plugin;
+    private final JTabbedPane    tabs;
 
     public MainWindow( final ServerUIPlugin plugin ) {
         super( "Minebuilder Server User Interface" );
         this.setSize( 800, 600 );
-        this.setVisible( true );
+        this.setResizable( false );
         this.setLayout( new BorderLayout() );
 
         this.plugin = plugin;
@@ -33,6 +33,8 @@ public class MainWindow extends JFrame {
 
         this.add( new Logo(), BorderLayout.NORTH );
         this.add( this.tabs, BorderLayout.CENTER );
+
+        this.setVisible( true );
     }
 
     public void addTab( final Screen screen ) {

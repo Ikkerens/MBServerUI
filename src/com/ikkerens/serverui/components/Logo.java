@@ -14,9 +14,9 @@ public class Logo extends JLabel {
     public Logo() {
         try {
             this.setHorizontalAlignment( SwingConstants.CENTER );
-            BufferedImage logo = ImageIO.read( Logo.class.getResourceAsStream( "/images/minebuilder.png" ) );
+            final BufferedImage logo = ImageIO.read( Logo.class.getResourceAsStream( "/images/minebuilder.png" ) );
             this.setIcon( new ImageIcon( logo ) );
-        } catch ( IOException e ) {
+        } catch ( final IOException e ) {
         }
     }
 }
