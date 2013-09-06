@@ -1,0 +1,15 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Eclipse Files #
+.classpath
+.project
+/bin/
+/.settings/
+
+# Minebuilder server running files #
+/run/
