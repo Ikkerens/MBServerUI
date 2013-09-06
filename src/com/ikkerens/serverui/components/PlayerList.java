@@ -15,7 +15,7 @@ import com.mbserver.api.events.PostPlayerLoginEvent;
 import com.mbserver.api.game.Player;
 
 public class PlayerList extends JList implements Listener {
-    private static final long serialVersionUID = 8004760921073851046L;
+    private static final long serialVersionUID = 1337L;
 
     public PlayerList( final Server server ) {
         this.setSize( 150, this.getSize().height );

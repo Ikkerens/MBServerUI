@@ -10,7 +10,7 @@ import javax.swing.JTabbedPane;
 import com.ikkerens.serverui.components.Logo;
 
 public class MainWindow extends JFrame {
-    private static final long    serialVersionUID = 3280005860693797222L;
+    private static final long    serialVersionUID = 1337L;
     private final ServerUIPlugin plugin;
     private final JTabbedPane    tabs;
 

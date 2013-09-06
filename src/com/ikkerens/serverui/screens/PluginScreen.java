@@ -21,7 +21,7 @@ public class PluginScreen extends Screen {
         final JPanel panel = new JPanel();
         panel.setLayout( new BorderLayout() );
 
-        panel.add( new PluginList( plugin.getServer() ), BorderLayout.WEST );
+        panel.add( new PluginList( plugin ), BorderLayout.WEST );
         panel.add( new PluginDetail(), BorderLayout.CENTER );
 
         return panel;

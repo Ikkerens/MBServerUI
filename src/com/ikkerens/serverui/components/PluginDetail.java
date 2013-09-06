@@ -5,15 +5,15 @@ import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
 public class PluginDetail extends JPanel {
-    private static final long serialVersionUID = 3969978443239933426L;
+    private static final long serialVersionUID = 1337L;
 
     public PluginDetail() {
         this.setLayout( new BorderLayout() );
 
-        this.add( this.getButtons(), BorderLayout.NORTH );
+        // this.add( this.getButtons(), BorderLayout.NORTH );
     }
 
-    private JPanel getButtons() {
-        return null;
-    }
+//    private JPanel getButtons() {
+//        return null;
+//    }
 }

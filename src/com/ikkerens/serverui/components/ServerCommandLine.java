@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import com.mbserver.api.Server;
 
 public class ServerCommandLine extends JPanel {
-    private static final long serialVersionUID = 8925316017441299619L;
+    private static final long serialVersionUID = 1337L;
     private final Server      server;
     private JTextField        field;
 

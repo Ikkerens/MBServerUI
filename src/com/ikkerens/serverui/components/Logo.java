@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 public class Logo extends JLabel {
-    private static final long serialVersionUID = -6800031557055577957L;
+    private static final long serialVersionUID = 1337L;
 
     public Logo() {
         try {

@@ -9,7 +9,7 @@ import javax.swing.JTextArea;
 import javax.swing.text.DefaultCaret;
 
 public class LogTextArea extends JTextArea {
-    private static final long serialVersionUID = 7215329406490832433L;
+    private static final long serialVersionUID = 1337L;
 
     public LogTextArea( final Logger logger ) {
         this.setEditable( false );
