@@ -8,11 +8,16 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import com.mbserver.api.Server;
+
 public class ServerCommandLine extends JPanel {
     private static final long serialVersionUID = 8925316017441299619L;
+    private final Server      server;
     private JTextField        field;
 
-    public ServerCommandLine() {
+    public ServerCommandLine( Server server ) {
+        this.server = server;
+
         this.setLayout( new BorderLayout() );
         this.add( this.getTextArea(), BorderLayout.CENTER );
         this.add( this.getSubmitButton(), BorderLayout.EAST );
@@ -38,6 +43,7 @@ public class ServerCommandLine extends JPanel {
 
         @Override
         public void actionPerformed( final ActionEvent e ) {
+            ServerCommandLine.this.server.executeCommand( server.getConsoleCommandSender(), ServerCommandLine.this.field.getText() );
             ServerCommandLine.this.field.setText( "" );
         }
 

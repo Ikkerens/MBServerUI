@@ -22,7 +22,7 @@ public class LogScreen extends Screen {
         panel.setLayout( new BorderLayout() );
 
         panel.add( new LogTextArea( plugin.getLogger() ), BorderLayout.CENTER );
-        panel.add( new ServerCommandLine(), BorderLayout.SOUTH );
+        panel.add( new ServerCommandLine( plugin.getServer() ), BorderLayout.SOUTH );
 
         return panel;
     }
