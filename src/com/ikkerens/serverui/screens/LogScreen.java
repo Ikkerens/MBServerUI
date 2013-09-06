@@ -3,6 +3,7 @@ package com.ikkerens.serverui.screens;
 import java.awt.BorderLayout;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import com.ikkerens.serverui.Screen;
 import com.ikkerens.serverui.ServerUIPlugin;
@@ -21,7 +22,7 @@ public class LogScreen extends Screen {
         final JPanel panel = new JPanel();
         panel.setLayout( new BorderLayout() );
 
-        panel.add( new LogTextArea( plugin.getLogger() ), BorderLayout.CENTER );
+        panel.add( new JScrollPane( new LogTextArea( plugin.getLogger() ) ), BorderLayout.CENTER );
         panel.add( new ServerCommandLine( plugin.getServer() ), BorderLayout.SOUTH );
 
         return panel;

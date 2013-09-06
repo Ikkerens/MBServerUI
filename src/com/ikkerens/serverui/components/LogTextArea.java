@@ -6,6 +6,7 @@ import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
 import javax.swing.JTextArea;
+import javax.swing.text.DefaultCaret;
 
 public class LogTextArea extends JTextArea {
     private static final long serialVersionUID = 7215329406490832433L;
@@ -13,6 +14,7 @@ public class LogTextArea extends JTextArea {
     public LogTextArea( final Logger logger ) {
         this.setEditable( false );
         this.setSize( 1000, 1000 );
+        ( (DefaultCaret) this.getCaret() ).setUpdatePolicy( DefaultCaret.ALWAYS_UPDATE );
         logger.addHandler( new LogReader( logger ) );
     }
 
@@ -26,6 +28,7 @@ public class LogTextArea extends JTextArea {
         @Override
         public void publish( final LogRecord record ) {
             LogTextArea.this.append( this.format.format( record ) );
+            LogTextArea.this.setCaretPosition( LogTextArea.this.getDocument().getLength() );
         }
 
         @Override
