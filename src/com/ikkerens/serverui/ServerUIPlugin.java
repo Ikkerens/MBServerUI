@@ -35,6 +35,7 @@ public class ServerUIPlugin extends MBServerPlugin {
                 ServerUIPlugin.this.mainFrame.addTab( new WorldsScreen() );
                 ServerUIPlugin.this.mainFrame.addTab( new PluginScreen() );
             }
+
         } );
     }
 
