@@ -40,7 +40,7 @@ public class PlayerList extends JList implements Listener {
                 label.setForeground( list.getForeground() );
             }
 
-            label.setText( ( (Player) player ).getName() );
+            label.setText( ( (Player) player ).getDisplayName() );
 
             return label;
         }
