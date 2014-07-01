@@ -23,7 +23,6 @@ public abstract class ListComponent< T > extends JList {
         this.setSelectionMode( ListSelectionModel.SINGLE_SELECTION );
         this.setCellRenderer( new ListItemRenderer() );
         this.addListSelectionListener( new SelectionListener() );
-
         this.plugin = plugin;
     }
 
@@ -63,7 +62,9 @@ public abstract class ListComponent< T > extends JList {
 
         @Override
         public void valueChanged( final ListSelectionEvent e ) {
-
+        	if(!e.getValueIsAdjusting())
+        	ListComponent.this.onSelect((T) ListComponent.this.getSelectedValue(),
+        			ListComponent.this.getSelectedIndex());
         }
 
     }

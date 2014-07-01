@@ -1,11 +1,14 @@
 package com.ikkerens.serverui;
 
 import java.awt.BorderLayout;
+import java.awt.GraphicsEnvironment;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
+
+import sun.font.GraphicComponent;
 
 import com.ikkerens.serverui.components.Logo;
 
@@ -16,7 +19,9 @@ public class MainWindow extends JFrame {
 
     public MainWindow( final ServerUIPlugin plugin ) {
         super( "Minebuilder Server User Interface" );
+        
         this.setSize( 800, 600 );
+        this.setLocationRelativeTo( null );
         this.setResizable( false );
         this.setLayout( new BorderLayout() );
 

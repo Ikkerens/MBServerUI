@@ -3,57 +3,44 @@ package com.ikkerens.serverui.components;
 import java.awt.Component;
 
 import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.ListCellRenderer;
 
-import com.mbserver.api.Server;
+import com.ikkerens.serverui.ServerUIPlugin;
 import com.mbserver.api.events.EventHandler;
-import com.mbserver.api.events.EventPriority;
 import com.mbserver.api.events.Listener;
-import com.mbserver.api.events.PlayerLogoutEvent;
+import com.mbserver.api.events.PlayerLoginEvent;
 import com.mbserver.api.events.PostPlayerLoginEvent;
 import com.mbserver.api.game.Player;
 
-public class PlayerList extends JList implements Listener {
-    private static final long serialVersionUID = 1337L;
+public class PlayerList extends ListComponent<Player> implements Listener {
+	
+	public PlayerList(ServerUIPlugin plugin) {
+		super(plugin);
+		plugin.getPluginManager().registerEventHandler(this);
+	}
 
-    public PlayerList( final Server server ) {
-        this.setSize( 150, this.getSize().height );
-        this.setLayoutOrientation( JList.VERTICAL );
-        this.setListData( server.getPlayers() );
-        this.setCellRenderer( new PlayerRenderer() );
+	private static final long serialVersionUID = 1337L;
 
-        server.getPluginManager().registerEventHandler( this );
-    }
+	@Override
+	protected Component renderItem(Player item, int index, boolean selected,boolean focused) {
+		final JLabel label = new JLabel();
+		
+		label.setText(String.format("     %s    ",item.getDisplayName()));
+		return label;
+	}
 
-    private static class PlayerRenderer implements ListCellRenderer {
+	@Override
+	protected void onSelect(Player item, int index) {
+		
+	}
+	
+	@EventHandler
+	public void onLogout(PlayerLoginEvent e){
+		this.setData(e.getServer().getPlayers());
+	}
+	
+	@EventHandler
+	public void onLogin(PostPlayerLoginEvent e){
+		this.setData(e.getServer().getPlayers());
+	}
 
-        @Override
-        public Component getListCellRendererComponent( final JList list, final Object player, final int index, final boolean selected, final boolean focused ) {
-            final JLabel label = new JLabel();
-
-            if ( selected ) {
-                label.setBackground( list.getSelectionBackground() );
-                label.setForeground( list.getSelectionForeground() );
-            } else {
-                label.setBackground( list.getBackground() );
-                label.setForeground( list.getForeground() );
-            }
-
-            label.setText( ( (Player) player ).getDisplayName() );
-
-            return label;
-        }
-
-    }
-
-    @EventHandler( priority = EventPriority.LOWEST )
-    public void onLogin( final PostPlayerLoginEvent e ) {
-        this.setListData( e.getServer().getPlayers() );
-    }
-
-    @EventHandler( priority = EventPriority.LOWEST )
-    public void onLogout( final PlayerLogoutEvent e ) {
-        this.setListData( e.getServer().getPlayers() );
-    }
 }

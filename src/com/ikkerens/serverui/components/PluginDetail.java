@@ -25,7 +25,6 @@ public class PluginDetail extends JPanel {
         disable.addActionListener( new DisableHandler() );
 
         panel.add( disable );
-
         return panel;
     }
 

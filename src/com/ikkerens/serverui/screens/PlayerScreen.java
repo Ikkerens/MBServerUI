@@ -11,6 +11,9 @@ import com.ikkerens.serverui.components.PlayerList;
 
 public class PlayerScreen extends Screen {
 
+	private PlayerList playerList;
+	private PlayerEditor editor;
+	
     @Override
     protected String getTabTitle() {
         return "Players";
@@ -20,9 +23,11 @@ public class PlayerScreen extends Screen {
     protected JPanel buildContents( final ServerUIPlugin plugin ) {
         final JPanel panel = new JPanel();
         panel.setLayout( new BorderLayout() );
-
-        panel.add( new PlayerList( plugin.getServer() ), BorderLayout.WEST );
-        panel.add( new PlayerEditor(), BorderLayout.CENTER );
+        
+        playerList = new PlayerList( plugin );
+        editor = new PlayerEditor( playerList );
+        panel.add( playerList , BorderLayout.WEST );
+        panel.add( editor , BorderLayout.CENTER );
 
         return panel;
     }

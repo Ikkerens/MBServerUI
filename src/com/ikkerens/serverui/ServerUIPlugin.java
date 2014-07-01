@@ -8,6 +8,7 @@ import javax.swing.SwingUtilities;
 import com.ikkerens.serverui.screens.LogScreen;
 import com.ikkerens.serverui.screens.PlayerScreen;
 import com.ikkerens.serverui.screens.PluginScreen;
+import com.ikkerens.serverui.screens.SettingsScreen;
 import com.ikkerens.serverui.screens.WorldsScreen;
 import com.mbserver.api.Load;
 import com.mbserver.api.MBServerPlugin;
@@ -34,6 +35,7 @@ public class ServerUIPlugin extends MBServerPlugin {
                 ServerUIPlugin.this.mainFrame.addTab( new PlayerScreen() );
                 ServerUIPlugin.this.mainFrame.addTab( new WorldsScreen() );
                 ServerUIPlugin.this.mainFrame.addTab( new PluginScreen() );
+                ServerUIPlugin.this.mainFrame.addTab( new SettingsScreen() );
             }
 
         } );
