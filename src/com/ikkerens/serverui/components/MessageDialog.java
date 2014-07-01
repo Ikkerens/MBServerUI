@@ -29,7 +29,7 @@ public class MessageDialog extends JDialog{
 		
 		final JLabel label = new JLabel("Enter Your Message");
 		final JPanel panel = new JPanel();
-		input = new JTextField("",1);
+		input = new JTextField(1);
 		final JButton send = new JButton("Send"),cancel = new JButton("Cancel");
 		panel.setLayout(new FlowLayout());
 		

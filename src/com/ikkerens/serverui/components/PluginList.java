@@ -32,8 +32,6 @@ public class PluginList extends ListComponent< MBServerPlugin > implements Liste
 
     @Override
     protected void onSelect( final MBServerPlugin item, final int index ) {
-    	Manifest mf = item.getClass().getAnnotation( Manifest.class);
-        item.getLogger().info(mf.name());
 
     }
 
